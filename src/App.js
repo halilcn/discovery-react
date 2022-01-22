@@ -6,8 +6,8 @@ import { Test } from './components/Test';
 import { Test2 } from './components/Test2';
 import { Dashboard } from './routes/dashboard';
 import { Home } from './components/dashboard/Home';
-import { UserList } from './components/dashboard/UserList';
-import { UserDetail } from './components/dashboard/UserDetail';
+import { UserList } from './components/dashboard/user/UserList';
+import { UserDetail } from './components/dashboard/user/UserDetail';
 import '../src/styles/default.css';
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
         <Routes>
           <Route path="/login" element={<Login/>}/>
           <Route path="/register" element={<Register/>}/>
-          <Route path="/dashboard" element={<Dashboard/>}/>
+          <Route path="/dashboard" element={<UserList/>}/>
           <Route path="/dashboard/home" component={<Home/>}/>
           <Route path="/dashboard/users" component={<UserList/>}/>
           <Route path="/dashboard/users/:userId" component={<UserDetail/>}/>
