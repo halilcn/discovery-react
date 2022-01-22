@@ -8,10 +8,11 @@ import { Dashboard } from './routes/dashboard';
 import { Home } from './components/dashboard/Home';
 import { UserList } from './components/dashboard/UserList';
 import { UserDetail } from './components/dashboard/UserDetail';
+import '../src/styles/default.css';
 
 function App() {
   return (
-    <div>
+    <div className="bg-red-50 h-full">
       <BrowserRouter>
         <Routes>
           <Route path="/login" element={<Login/>}/>

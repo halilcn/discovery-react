@@ -1,26 +1,47 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 
 export const Login = (props) => {
+  const [test, setTest] = useState('test');
+  const [test2, setTest2] = useState('');
+
+  useEffect(() => {
+    console.log('created edildi');
+
+    /*return () => {
+      alert('component delete ');
+    };*/
+  }, []);
+
+  useEffect(() => {
+    console.log('değişti !!');
+    console.log(test);
+  });
+
+  useEffect(() => {
+    setTest2(test + 'asdsa');
+  }, [test]);
+
   return (
-    <div className="bg-gray-300 p-6">
-      <div className="bg-white w-full lg:w-1/3 mx-auto rounded-lg px-4 py-4 shadow-lg">
-        <input type="text"
-               placeholder="Email or Phone Number"
-               className="w-full mb-3 px-4 py-3 border rounded-lg text-gray-700 focus:outline-none focus:border-green-500"/>
-        <input type="text" placeholder="Password"
-               className="w-full mb-3 px-4 py-3 border rounded-lg text-gray-700 focus:outline-none focus:border-green-500"/>
-        <div className="text-white py-3 rounded-lg w-full font-bold text-xl tracking-wider">Log
-          In
+    <div className="bg-gray-100 h-full flex items-center justify-center">
+      <div className="bg-white w-1/3 rounded-xl p-5 shadow-lg ">
+        {test2}-
+        {test}
+        <input type="email"
+               value={test}
+               onChange={(e) => {setTest(e.target.value);}}
+               placeholder="E-mail"
+               className="w-full mb-3 p-4 border border-gray-200 rounded-lg text-gray-500 focus:border-gray-300 focus:shadow-md"/>
+        <input type="password" placeholder="Password"
+               className="w-full mb-3 p-4 border border-gray-200 rounded-lg text-gray-500 focus:border-gray-300 focus:shadow-md"/>
+        <div
+          className="text-blue-600 mt-6 py-3 bg-blue-50 text-center mb-5 rounded-lg w-full font-bold text-xl tracking-wider cursor-pointer transition hover:bg-blue-100 hover:-translate-y-1">
+          Log In
         </div>
-        <div className="flex justify-center my-4">
-          <a className="text-blue-500 text-sm" href="#">Forgot account?</a>
-        </div>
-        <div className="flex justify-center my-6">
-          <div className="text-white h-12 rounded px-6 font-bold">Create
-            new Account
-          </div>
-        </div>
-        <Link to="/register">register</Link>
+        <NavLink to="/register"
+                 className="text-gray-400 underline font-medium ">
+          register
+        </NavLink>
       </div>
     </div>
   );
