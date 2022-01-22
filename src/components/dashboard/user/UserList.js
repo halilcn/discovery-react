@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { Top } from '../shared/Top';
 import { UserDetailItem } from './UserDetailItem';
 
 export const UserList = (props) => {
@@ -19,7 +18,6 @@ export const UserList = (props) => {
 
   return (
     <div>
-      <Top/>
       {
         loading
           ? 'loading...'

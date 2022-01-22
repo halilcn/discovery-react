@@ -1,7 +1,11 @@
+import { Outlet } from 'react-router-dom';
+import { Top } from './shared/Top';
+
 export const Home = (props) => {
   return (
     <div>
-      dashboard home
+      <Top/>
+      <Outlet/>
     </div>
   );
 };
