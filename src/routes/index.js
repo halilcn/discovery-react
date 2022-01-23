@@ -2,7 +2,7 @@ import { Login } from '../components/general/Login';
 import { Register } from '../components/general/Register';
 import { Home } from '../components/dashboard/Home';
 import { UserList } from '../components/dashboard/user/UserList';
-import { Main } from '../components/dashboard/Main';
+import { Main } from '../components/dashboard/main/Main';
 
 export const routes = {
   login: {

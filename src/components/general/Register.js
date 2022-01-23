@@ -1,8 +1,11 @@
-import { NavLink, useNavigate } from 'react-router-dom';
-import axios from 'axios';
 import { useEffect } from 'react';
-import helpers from '../../helpers';
+
+import { NavLink, useNavigate } from 'react-router-dom';
+
+import helpers from '../../others/helpers';
 import { routes } from '../../routes/index';
+import handle from '../../others/handle';
+import { postLogin, postRegister } from '../../services/auth';
 
 export const Register = (props) => {
   let history = useNavigate();
@@ -13,28 +16,12 @@ export const Register = (props) => {
     }
   }, []);
 
-  const postUser = async () => {
-    const test = await axios.post('https://fakestoreapi.com/users', {
-      email: 'John@gmail.com',
-      username: 'johnd',
-      password: 'm38rmF$',
-      name: {
-        firstname: 'John',
-        lastname: 'Doe'
-      },
-      address: {
-        city: 'kilcoole',
-        street: '7835 new road',
-        number: 3,
-        zipcode: '12926-3874',
-        geolocation: {
-          lat: '-37.3159',
-          long: '81.1496'
-        }
-      },
-      phone: '1-570-236-7033'
+  const register = () => {
+    handle(async () => {
+      await postRegister();
+      await postLogin();
+      history(routes.dashboard.children.main.fullPath);
     });
-    console.log(test);
   };
 
   return (
@@ -49,10 +36,10 @@ export const Register = (props) => {
                className="w-full mb-3 p-4 border border-gray-200 rounded-lg text-gray-500 focus:border-gray-300 focus:shadow-md"/>
         <div
           className="text-blue-600 mt-6 py-3 bg-blue-50 text-center mb-5 rounded-lg w-full font-bold text-xl tracking-wider cursor-pointer transition hover:bg-blue-100 hover:-translate-y-1"
-          onClick={postUser}>
+          onClick={register}>
           Register
         </div>
-        <NavLink to="/login"
+        <NavLink to={routes.login.path}
                  className="text-gray-400 underline font-medium">
           login
         </NavLink>

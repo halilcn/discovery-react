@@ -11,7 +11,6 @@ export const UserList = (props) => {
   }, []);
 
   const getUsers = async () => {
-    const users = (await axios.get('https://fakestoreapi.com/users')).data;
     setUsers(users);
     setLoading(false);
   };

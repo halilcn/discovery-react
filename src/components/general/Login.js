@@ -1,8 +1,12 @@
-import { NavLink, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+
+import { NavLink, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import helpers from '../../helpers';
+
+import helpers from '../../others/helpers';
 import { routes } from '../../routes/index';
+import handle from '../../others/handle';
+import { postLogin } from '../../services/auth';
 
 /*  useEffect(() => {
     console.log('created edildi');
@@ -16,16 +20,22 @@ import { routes } from '../../routes/index';
     setTest2(test + 'asdsa');
   }, [test]);*/
 
+//todo: loading state problem !
+
 export const Login = (props) => {
   const [loginButtonDisable, setLoginButtonDisable] = useState(false);
+  const [loading, setLoading] = useState(false);
   const { register, handleSubmit, formState: { errors, isValid, isDirty } } = useForm();
   let history = useNavigate();
 
-  const onSubmit = async (data) => {
-    // Fake login
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    helpers.setAuthToStorage({ username: 'halil', token: 'asad409534ıuejfd94rej' });
-    history(routes.dashboard.children.main.fullPath);
+  const login = (data) => {
+    handle(async () => {
+      await setLoading(loading => !loading);
+      await postLogin();
+      alert(loading);
+
+      history(routes.dashboard.children.main.fullPath);
+    });
   };
 
   useEffect(() => {
@@ -41,7 +51,7 @@ export const Login = (props) => {
   return (
     <div className="bg-gray-100 h-full flex items-center justify-center">
       <div className="bg-white w-1/3 rounded-xl p-5 shadow-lg ">
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit(login)}>
           <input
             className="w-full  p-4 border border-gray-200 rounded-lg text-gray-500 focus:border-gray-300 focus:shadow-md"
             placeholder="E-mail"
