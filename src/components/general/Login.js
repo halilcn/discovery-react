@@ -1,6 +1,8 @@
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
+import helpers from '../../helpers';
+import { routes } from '../../routes/index';
 
 /*  useEffect(() => {
     console.log('created edildi');
@@ -15,27 +17,31 @@ import { useForm } from 'react-hook-form';
   }, [test]);*/
 
 export const Login = (props) => {
-  const [isLoading, setIsLoading] = useState(false);
   const [loginButtonDisable, setLoginButtonDisable] = useState(false);
   const { register, handleSubmit, formState: { errors, isValid, isDirty } } = useForm();
   let history = useNavigate();
 
   const onSubmit = async (data) => {
-    setIsLoading(true);
     // Fake login
     await new Promise((resolve) => setTimeout(resolve, 1000));
-    history('/dashboard');
+    helpers.setAuthToStorage({ username: 'halil', token: 'asad409534ıuejfd94rej' });
+    history(routes.dashboard.children.main.fullPath);
   };
 
   useEffect(() => {
-    setLoginButtonDisable((!isValid && !isDirty) || isLoading);
+    if (helpers.isAuth()) {
+      history(routes.dashboard.children.main.fullPath);
+    }
+  }, []);
+
+  useEffect(() => {
+    setLoginButtonDisable((!isValid && !isDirty));
   }, [isValid, isDirty]);
 
   return (
     <div className="bg-gray-100 h-full flex items-center justify-center">
       <div className="bg-white w-1/3 rounded-xl p-5 shadow-lg ">
         <form onSubmit={handleSubmit(onSubmit)}>
-          {isLoading}
           <input
             className="w-full  p-4 border border-gray-200 rounded-lg text-gray-500 focus:border-gray-300 focus:shadow-md"
             placeholder="E-mail"

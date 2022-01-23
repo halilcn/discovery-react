@@ -1,7 +1,17 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { useEffect } from 'react';
+import helpers from '../../helpers';
+import { routes } from '../../routes/index';
 
 export const Register = (props) => {
+  let history = useNavigate();
+
+  useEffect(() => {
+    if (helpers.isAuth()) {
+      history(routes.dashboard.children.main.fullPath);
+    }
+  }, []);
 
   const postUser = async () => {
     const test = await axios.post('https://fakestoreapi.com/users', {
