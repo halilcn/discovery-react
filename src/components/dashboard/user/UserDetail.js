@@ -1,11 +1,31 @@
+import { useEffect, useState } from 'react';
+
 import { NavLink, useParams } from 'react-router-dom';
 
+import { getUserDetail } from '../../../services/user';
+import handle from '../../../others/handle';
+
 export const UserDetail = () => {
-  let params = useParams();
+  const [user, setUser] = useState([]);
+  const [loading, setLoading] = useState(true);
+  let { userId } = useParams();
+
+  useEffect(() => {
+    handle(async () => {
+      setUser(await getUserDetail(userId));
+      setLoading(false);
+    });
+  }, []);
 
   return (
     <div>
-      user detail
+      {loading ? (
+        'loading'
+      ) : (
+        <div>
+          -- {user.username}
+        </div>
+      )}
     </div>
   );
 };

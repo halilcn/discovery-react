@@ -1,18 +1,23 @@
-import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { UserDetailItem } from './UserDetailItem';
+
+import { UserListItem } from './UserListItem';
+import { getUsers } from '../../../services/user';
+import handle from '../../../others/handle';
 
 export const UserList = (props) => {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    getUsers();
+    getUsersAction();
   }, []);
 
-  const getUsers = async () => {
-    setUsers(users);
-    setLoading(false);
+  const getUsersAction = () => {
+    handle(async () => {
+      setUsers(await getUsers());
+    }).finally(() => {
+      setLoading(false);
+    });
   };
 
   return (
@@ -23,7 +28,7 @@ export const UserList = (props) => {
           : <div className="flex w-full">
             {users.map(user => {
               return (
-                <UserDetailItem user={user}/>
+                <UserListItem user={user}/>
               );
             })}
           </div>

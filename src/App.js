@@ -18,6 +18,7 @@ function App() {
           <Route path={routes.dashboard.path} element={routes.dashboard.element}>
             <Route path={routes.dashboard.children.main.path} element={routes.dashboard.children.main.element}/>
             <Route path={routes.dashboard.children.users.path} element={routes.dashboard.children.users.element}/>
+            <Route path={routes.dashboard.children.userDetail.path} element={routes.dashboard.children.userDetail.element}/>
           </Route>
         </Routes>
       </BrowserRouter>
