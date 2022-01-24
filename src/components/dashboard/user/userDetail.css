@@ -1,0 +1,31 @@
+.user-info {
+    @apply w-1/2 m-auto mt-6 p-6 shadow-md rounded-xl
+}
+
+.user-info > .top {
+    @apply flex-col items-center
+}
+
+.user-info > .top > img {
+    @apply rounded-full w-36 h-36
+}
+
+.user-info > .top > .username {
+    @apply mt-4 font-medium text-xl text-gray-700
+}
+
+.user-info > .bottom > .other-infos {
+    @apply mt-10
+}
+
+.user-info > .bottom > .other-infos > .item {
+    @apply flex
+}
+
+.user-info > .bottom > .other-infos > .item > .title{
+    @apply font-medium text-gray-500
+}
+
+.user-info > .bottom > .other-infos > .item > .value {
+    @apply ml-auto;
+}

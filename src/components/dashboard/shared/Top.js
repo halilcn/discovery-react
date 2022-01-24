@@ -14,7 +14,7 @@ export const Top = () => {
   };
 
   return (
-    <div className="top">
+    <div className="header">
       <NavLink className="link" exact activeClassName="underline" to={routes.dashboard.children.main.fullPath}>
         main page
       </NavLink>

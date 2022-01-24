@@ -1,4 +1,4 @@
-.top {
+.header {
     @apply p-4 bg-blue-50 rounded-lg flex justify-center border-b-2 border-blue-100
 }
 
