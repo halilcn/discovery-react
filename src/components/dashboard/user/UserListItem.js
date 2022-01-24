@@ -1,15 +1,21 @@
 import { NavLink } from 'react-router-dom';
 
-//todo: link yapıları iyileştirme
+import './user-list-item.css';
+import { routes } from '../../../routes/index';
 
-export const UserListItem = (params) => {
+export const UserListItem = ({ user }) => {
   return (
-    <div className="bg-red-50 m-4">
-      <NavLink className="underline" to="/users/1">
-        {params.user.username}
+    <div className="user-item">
+      <NavLink to={routes.dashboard.children.userDetail.fullPath.replace(':userId',user.id)} className="top">
+        <img src="https://randomuser.me/api/portraits/men/83.jpg"/>
+        <div className="username">
+          {user.username}
+        </div>
       </NavLink>
-      <div className="">
-        delete
+      <div className="bottom">
+        <div className="delete-btn">
+          delete
+        </div>
       </div>
     </div>
   );

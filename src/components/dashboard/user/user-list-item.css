@@ -1,0 +1,23 @@
+.user-item {
+    @apply m-4 w-36;
+}
+
+.user-item > .top {
+    @apply p-5 overflow-hidden flex-col items-center  bg-blue-50 shadow-blue-50 rounded-lg
+}
+
+.user-item > .top > img {
+    @apply rounded-full w-20 h-20
+}
+
+.user-item > .top > .username {
+    @apply mt-3 font-medium text-gray-600
+}
+
+.user-item > .bottom {
+    @apply mt-1
+}
+
+.user-item > .bottom > .delete-btn {
+    @apply text-center p-1.5 bg-red-50 text-red-600 rounded-lg cursor-pointer transition hover:bg-red-100
+}

@@ -19,7 +19,7 @@ export const UserList = (props) => {
     handle(async () => {
       setUsers(await getUsers());
     }).finally(() => {
-      //setLoading(false);
+      setLoading(false);
     });
   };
 
@@ -30,12 +30,14 @@ export const UserList = (props) => {
             <Loading textCount={4} textLineCount={5}/>
           )
           : (
-            <div className="flex w-full">
-              {users.map(user => {
-                return (
-                  <UserListItem user={user}/>
-                );
-              })}
+            <div className="user-list">
+              {
+                users.map(user => {
+                  return (
+                    <UserListItem user={user}/>
+                  );
+                })
+              }
             </div>
           )
       }
