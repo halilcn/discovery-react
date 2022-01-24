@@ -1,7 +1,11 @@
+import './main.css'
+
 export const Main = () => {
   return (
-    <div>
-      main page
+    <div className="main">
+      <div className="title">
+        main page
+      </div>
     </div>
   );
 };

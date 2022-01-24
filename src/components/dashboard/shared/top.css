@@ -1,0 +1,11 @@
+.top {
+    @apply p-4 bg-blue-50 rounded-lg flex justify-center border-b-2 border-blue-100
+}
+
+.link {
+    @apply font-semibold mr-10 text-gray-600 font-medium cursor-pointer hover:text-gray-500
+}
+
+.link.logout {
+    @apply text-red-400
+}

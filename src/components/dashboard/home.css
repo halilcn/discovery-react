@@ -1,0 +1,7 @@
+.home {
+    @apply h-full flex-col;
+}
+
+.dynamic-component-container {
+    @apply h-full p-5 bg-gray-50;
+}
