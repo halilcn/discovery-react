@@ -1,9 +1,15 @@
 .user-info {
-    @apply w-1/2 m-auto mt-6 p-6 shadow-md rounded-xl
+    @apply w-1/2 m-auto mt-6 p-6 shadow-md rounded-xl border-2
+}
+
+.user-info > .back-btn {
+    @apply bg-slate-100 font-medium px-5 py-2 rounded text-slate-600 transition hover:bg-slate-200
 }
 
 .user-info > .top {
-    @apply flex-col items-center
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .user-info > .top > img {
@@ -19,13 +25,13 @@
 }
 
 .user-info > .bottom > .other-infos > .item {
-    @apply flex
+    @apply flex p-3 bg-blue-50 rounded-lg m-4
 }
 
-.user-info > .bottom > .other-infos > .item > .title{
-    @apply font-medium text-gray-500
+.user-info > .bottom > .other-infos > .item > .title {
+    @apply font-medium  text-gray-400
 }
 
 .user-info > .bottom > .other-infos > .item > .value {
-    @apply ml-auto;
+    @apply ml-auto text-gray-600
 }

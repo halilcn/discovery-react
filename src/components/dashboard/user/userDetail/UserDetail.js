@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
 
-import { useParams } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 
 import { getUserDetail } from '../../../../services/user';
 import handle from '../../../../others/handle';
 import { Loading } from '../../shared/loading/Loading';
+import { routes } from '../../../../routes/index';
 
 import './userDetail.css';
 
@@ -18,6 +19,7 @@ export const UserDetail = () => {
     handle(async () => {
       setUser(await getUserDetail(userId));
       setLoading(false);
+      console.log(user);
     });
   }, []);
 
@@ -28,6 +30,9 @@ export const UserDetail = () => {
           <Loading textLineCount={5}/>
         ) : (
           <div className="user-info">
+            <NavLink className="back-btn" to={routes.dashboard.children.users.fullPath}>
+              back
+            </NavLink>
             <div className="top">
               <img src="https://randomuser.me/api/portraits/men/83.jpg"/>
               <div className="username">
@@ -38,10 +43,26 @@ export const UserDetail = () => {
               <div className="other-infos">
                 <div className="item">
                   <div className="title">
-                    test 121
+                    Phone
                   </div>
                   <div className="value">
-                    sadadskasdsoa das
+                    {user.phone}
+                  </div>
+                </div>
+                <div className="item">
+                  <div className="title">
+                    E-mail
+                  </div>
+                  <div className="value">
+                    {user.email}
+                  </div>
+                </div>
+                <div className="item">
+                  <div className="title">
+                    City
+                  </div>
+                  <div className="value">
+                    {user.address.city}
                   </div>
                 </div>
               </div>
