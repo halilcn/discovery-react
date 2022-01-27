@@ -3,14 +3,14 @@
 }
 
 .user-item > .top {
-    @apply p-5 overflow-hidden flex-col items-center  bg-blue-50 shadow-blue-50 rounded-lg
+    @apply p-5 w-full overflow-hidden flex-col bg-blue-50 shadow-blue-50 rounded-lg
 }
 
-.user-item > .top > img {
+.user-item > .top img {
     @apply rounded-full w-20 h-20
 }
 
-.user-item > .top > .username {
+.user-item > .top .username {
     @apply mt-3 font-medium text-gray-600
 }
 

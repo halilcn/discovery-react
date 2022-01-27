@@ -9,14 +9,14 @@ import { routes } from '../../routes/index';
 
 import './dashboard.css';
 
-export const Dashboard = (props) => {
+export const Dashboard = () => {
   let history = useNavigate();
 
   useEffect(() => {
     if (!helpers.isAuth()) {
       history(routes.login.path);
     }
-  }, []);
+  });
 
   return (
     <div className="home">

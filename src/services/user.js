@@ -7,3 +7,7 @@ export const getUsers = async () => {
 export const getUserDetail = async (userId) => {
   return (await axios.get(`users/${userId}`)).data;
 };
+
+export const deleteUser = async (userId) => {
+  await axios.delete(`users/${userId}`);
+};

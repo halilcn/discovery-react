@@ -3,7 +3,7 @@ import { Register } from '../views/general/register/Register';
 import { Dashboard } from '../views/dashboard/Dashboard';
 import { UserList } from '../components/dashboard/user/userList/UserList';
 import { Main } from '../components/dashboard/main/Main';
-import { UserDetail } from '../components/dashboard/user/userList/UserDetail';
+import { UserDetail } from '../components/dashboard/user/userDetail/UserDetail';
 import { NoPage } from '../views/general/noPage/NoPage';
 
 export const routes = {

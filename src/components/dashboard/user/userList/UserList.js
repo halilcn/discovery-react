@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import { Loading } from '../../shared/loading/Loading';
-import { UserListItem } from '../UserListItem';
+import { UserListItem } from '../userListItem/UserListItem';
 import { getUsers } from '../../../../services/user';
 import handle from '../../../../others/handle';
 
@@ -13,14 +13,15 @@ export const UserList = (props) => {
 
   useEffect(() => {
     getUsersAction();
-  }, []);
+  },[]);
 
   const getUsersAction = () => {
     handle(async () => {
       setUsers(await getUsers());
-    }).finally(() => {
-      setLoading(false);
-    });
+    })
+      .finally(() => {
+        setLoading(false);
+      });
   };
 
   return (
@@ -32,11 +33,9 @@ export const UserList = (props) => {
           : (
             <div className="user-list">
               {
-                users.map(user => {
-                  return (
-                    <UserListItem user={user}/>
-                  );
-                })
+                users.map(user => (
+                  <UserListItem key={user.id} user={user}/>
+                ))
               }
             </div>
           )
