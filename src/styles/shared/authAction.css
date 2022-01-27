@@ -14,15 +14,15 @@
     @apply bg-red-50 p-3 text-red-500 rounded-lg mt-1
 }
 
-.user-action-container > .content .login-btn {
+.user-action-container > .content .action-btn {
     @apply mt-6 py-3 text-center mb-5 rounded-lg w-full font-bold text-xl tracking-wider cursor-pointer transition hover:bg-blue-100 hover:-translate-y-1
 }
 
-.user-action-container > .content .login-btn.disable {
+.user-action-container > .content .action-btn.disable {
     @apply opacity-80 text-slate-400 bg-slate-200 pointer-events-none
 }
 
-.user-action-container > .content .login-btn.active {
+.user-action-container > .content .action-btn.active {
     @apply text-blue-600 bg-blue-50
 }
 

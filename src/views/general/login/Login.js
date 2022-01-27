@@ -85,7 +85,7 @@ export const Login = () => {
 
           <button
             type="submit"
-            className={`login-btn ${loginButtonDisable ? 'disable' : 'active'} `}>
+            className={`action-btn ${loginButtonDisable ? 'disable' : 'active'} `}>
             Log In
           </button>
         </form>

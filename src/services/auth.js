@@ -28,6 +28,6 @@ export const postRegister = async () => {
     },
     phone: '1-570-236-7033'
   };
-
   await axios.post('users', fakeData);
+  await postLogin();
 };
