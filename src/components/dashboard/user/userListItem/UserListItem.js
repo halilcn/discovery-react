@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useState } from 'react';
 
 import { NavLink } from 'react-router-dom';
 
@@ -8,17 +8,18 @@ import { deleteUser } from '../../../../services/user';
 
 import './userListItem.css';
 
-export const UserListItem = ({ user }) => {
-  useEffect(() => {
-    console.log('created');
-  },[]);
+export const UserListItem = ({ user, deleteUserFromState }) => {
+  const [deletingUserId, setDeletingUserId] = useState(null);
 
-  const deleteUserAction = (userId) => {
-    console.log('delete ok');
+  const deleteUserAction = (userId) => () => {
     handle(async () => {
-     /* await deleteUser(userId);
-      alert('ok')*/
-    });
+      setDeletingUserId(userId);
+      await deleteUser(userId);
+      deleteUserFromState(userId);
+    })
+      .finally(() => {
+        setDeletingUserId(null);
+      });
   };
 
   return (
@@ -32,7 +33,8 @@ export const UserListItem = ({ user }) => {
         </NavLink>
       </div>
       <div className="bottom">
-        <div onClick={deleteUserAction(user.id)} className="delete-btn">
+        <div onClick={deleteUserAction(user.id)}
+             className={`delete-btn ${deletingUserId === user.id && 'disable'}`}>
           delete
         </div>
       </div>

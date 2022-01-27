@@ -21,3 +21,7 @@
 .user-item > .bottom > .delete-btn {
     @apply text-center p-1.5 bg-red-50 text-red-600 rounded-lg cursor-pointer transition hover:bg-red-100
 }
+
+.user-item > .bottom > .delete-btn.disable{
+    @apply opacity-80 text-slate-400 bg-slate-200 pointer-events-none
+}

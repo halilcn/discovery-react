@@ -13,7 +13,7 @@ export const UserList = (props) => {
 
   useEffect(() => {
     getUsersAction();
-  },[]);
+  }, []);
 
   const getUsersAction = () => {
     handle(async () => {
@@ -22,6 +22,12 @@ export const UserList = (props) => {
       .finally(() => {
         setLoading(false);
       });
+  };
+
+  const deleteUserFromState = (userId) => {
+    setUsers(users => {
+      return users.filter(user => user.id !== userId);
+    });
   };
 
   return (
@@ -34,7 +40,9 @@ export const UserList = (props) => {
             <div className="user-list">
               {
                 users.map(user => (
-                  <UserListItem key={user.id} user={user}/>
+                  <UserListItem key={user.id}
+                                user={user}
+                                deleteUserFromState={deleteUserFromState}/>
                 ))
               }
             </div>
