@@ -18,8 +18,8 @@ export const UserDetail = () => {
   useEffect(() => {
     handle(async () => {
       setUser(await getUserDetail(userId));
+    }).finally(() => {
       setLoading(false);
-      console.log(user);
     });
   }, []);
 
