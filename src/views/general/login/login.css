@@ -1,0 +1,32 @@
+.login-container {
+    @apply bg-gray-100 h-full flex items-center justify-center
+}
+
+.login-container > .content {
+    @apply bg-white w-1/3 rounded-xl p-5 shadow-lg
+}
+
+.login-container > .content input {
+    @apply w-full mt-5 p-4 border border-gray-200 rounded-lg text-gray-500 focus:border-gray-300 focus:shadow-md
+}
+
+.login-container > .content .error {
+    @apply bg-red-50 p-3 text-red-500 rounded-lg mt-1
+}
+
+.login-container > .content .login-btn {
+    @apply mt-6 py-3 text-center mb-5 rounded-lg w-full font-bold text-xl tracking-wider cursor-pointer transition hover:bg-blue-100 hover:-translate-y-1
+}
+
+.login-container > .content .login-btn.disable {
+    @apply opacity-80 text-slate-400 bg-slate-200 pointer-events-none
+}
+
+.login-container > .content .login-btn.active {
+    @apply text-blue-600 bg-blue-50
+}
+
+.login-container > .content .redirect-link {
+    @apply text-gray-400 underline font-medium hover:text-gray-500
+}
+

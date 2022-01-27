@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 
-import { Loading } from '../shared/Loading';
-import { UserListItem } from './UserListItem';
-import { getUsers } from '../../../services/user';
-import handle from '../../../others/handle';
+import { Loading } from '../../shared/loading/Loading';
+import { UserListItem } from '../UserListItem';
+import { getUsers } from '../../../../services/user';
+import handle from '../../../../others/handle';
 
 import './userList.css';
 

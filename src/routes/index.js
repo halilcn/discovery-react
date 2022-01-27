@@ -1,10 +1,10 @@
-import { Login } from '../components/general/Login';
-import { Register } from '../components/general/Register';
-import { Home } from '../components/dashboard/Home';
-import { UserList } from '../components/dashboard/user/UserList';
+import { Login } from '../views/general/login/Login';
+import { Register } from '../views/general/register/Register';
+import { Dashboard } from '../views/dashboard/Dashboard';
+import { UserList } from '../components/dashboard/user/userList/UserList';
 import { Main } from '../components/dashboard/main/Main';
-import { UserDetail } from '../components/dashboard/user/UserDetail';
-import { NoPage } from '../components/general/NoPage';
+import { UserDetail } from '../components/dashboard/user/userList/UserDetail';
+import { NoPage } from '../views/general/noPage/NoPage';
 
 export const routes = {
   login: {
@@ -21,7 +21,7 @@ export const routes = {
   },
   dashboard: {
     path: '/dashboard/',
-    element: <Home/>,
+    element: <Dashboard/>,
     children: {
       main: {
         path: 'main',

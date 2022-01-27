@@ -1,7 +1,7 @@
 import { NavLink, useNavigate } from 'react-router-dom';
 
-import helpers from '../../../others/helpers';
-import { routes } from '../../../routes/index';
+import helpers from '../../../../others/helpers';
+import { routes } from '../../../../routes/index';
 
 import './top.css';
 

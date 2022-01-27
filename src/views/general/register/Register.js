@@ -2,10 +2,10 @@ import { useEffect } from 'react';
 
 import { NavLink, useNavigate } from 'react-router-dom';
 
-import helpers from '../../others/helpers';
-import { routes } from '../../routes/index';
-import handle from '../../others/handle';
-import { postLogin, postRegister } from '../../services/auth';
+import helpers from '../../../others/helpers';
+import { routes } from '../../../routes/index';
+import handle from '../../../others/handle';
+import { postLogin, postRegister } from '../../../services/auth';
 
 export const Register = (props) => {
   let history = useNavigate();

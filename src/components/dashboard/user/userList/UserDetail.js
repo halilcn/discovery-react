@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react';
 
 import { useParams } from 'react-router-dom';
 
-import { getUserDetail } from '../../../services/user';
-import handle from '../../../others/handle';
-import { Loading } from '../shared/Loading';
+import { getUserDetail } from '../../../../services/user';
+import handle from '../../../../others/handle';
+import { Loading } from '../../shared/loading/Loading';
 
 import './userDetail.css';
 
