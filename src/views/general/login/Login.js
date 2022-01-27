@@ -60,7 +60,7 @@ export const Login = () => {
   };
 
   return (
-    <div className="login-container">
+    <div className="user-action-container">
       <div className="content">
         <form onSubmit={handleSubmit(login)}>
           <input

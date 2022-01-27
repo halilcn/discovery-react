@@ -1,7 +1,7 @@
 import './App.css';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import { routes } from './routes/index';
-import '../src/styles/default.css';
+import './styles/_default.css';
 import axios from 'axios';
 import constants from './store/constants';
 
